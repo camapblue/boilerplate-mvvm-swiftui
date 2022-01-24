@@ -1,0 +1,21 @@
+//
+//  QC.xcconfig
+//  boilerplate-swiftui-bloc
+//
+//  Created by Hao Tran Thien on 05/01/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ENVIRONMENT = QC
+APP_NAME = SwiftUI Bloc Test
+APP_BUNDLE_ID = ptc.tech.SwiftUIBloc.qc
+APP_VERSION = 1.0
+
+//
+
+IS_STORYBOOK = NO
+
+//-- Endpoint
+API_ENDPOINT_URL = https:/$()/randomuser.me/api/

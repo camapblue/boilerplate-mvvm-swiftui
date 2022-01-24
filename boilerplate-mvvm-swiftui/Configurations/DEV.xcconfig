@@ -1,0 +1,22 @@
+//
+//  DEV.xcconfig
+//  boilerplate-swiftui-bloc
+//
+//  Created by Hao Tran Thien on 05/01/2022.
+//
+
+// Configuration settings file format documentation can be found at:
+// https://help.apple.com/xcode/#/dev745c5c974
+
+ENVIRONMENT = DEV
+APP_NAME = SwiftUI Bloc Dev
+APP_BUNDLE_ID = ptc.tech.SwiftUIBloc.dev
+APP_VERSION = 1.0
+
+//
+
+IS_STORYBOOK = YES
+
+//-- Endpoint
+API_ENDPOINT_URL = https:/$()/randomuser.me/api/
+
