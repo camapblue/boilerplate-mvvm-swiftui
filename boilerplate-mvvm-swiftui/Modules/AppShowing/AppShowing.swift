@@ -13,7 +13,7 @@ struct AppShowing: View {
     
     let router = NavigationRouter(routes: .all)
     
-    var body: some View {
+    var content: some View {
         NavigationView {
             RouterView(
                 router: router,
@@ -22,6 +22,14 @@ struct AppShowing: View {
         }
         .environment(\.router, router)
         .navigationViewStyle(StackNavigationViewStyle())
+    }
+    
+    var body: some View {
+        if viewModel.isLoading {
+            content.overlay(LoadingOverlay())
+        } else {
+            content
+        }
     }
 }
 

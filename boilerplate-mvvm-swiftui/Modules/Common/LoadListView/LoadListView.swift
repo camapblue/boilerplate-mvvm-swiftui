@@ -62,7 +62,6 @@ struct LoadListView<T: Equatable>: View {
     }
     
     var body: some View {
-        var _ = print("VIEW MODEL NOW = \(viewModel)")
         let items = viewModel.items
             .filter { item in
                 if let filter = itemFilter {
