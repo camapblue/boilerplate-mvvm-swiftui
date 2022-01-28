@@ -3,10 +3,15 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A67945A827A133B100ADF5FD /* MockURLProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67945A227A133B100ADF5FD /* MockURLProtocol.swift */; };
+		A67945A927A133B100ADF5FD /* ContactApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67945A327A133B100ADF5FD /* ContactApiTests.swift */; };
+		A67945AA27A133B100ADF5FD /* ContactDaoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67945A527A133B100ADF5FD /* ContactDaoTests.swift */; };
+		A67945AB27A133B100ADF5FD /* ContactRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A67945A727A133B100ADF5FD /* ContactRepositoryTests.swift */; };
+		A67945AE27A135A800ADF5FD /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = A67945AD27A135A800ADF5FD /* Mockingbird */; };
 		A6BB7347279CF74C001B2DD7 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB733E279CF74C001B2DD7 /* Repository.swift */; };
 		A6BB7364279CF770001B2DD7 /* Publisher+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB734D279CF770001B2DD7 /* Publisher+Extension.swift */; };
 		A6BB7365279CF770001B2DD7 /* ContactDaoImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6BB7350279CF770001B2DD7 /* ContactDaoImpl.swift */; };
@@ -24,6 +29,7 @@
 		A6D08AA1279CEFC400D35698 /* Repository.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A6D08A97279CEFC400D35698 /* Repository.framework */; };
 		A6D08AA6279CEFC400D35698 /* RepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6D08AA5279CEFC400D35698 /* RepositoryTests.swift */; };
 		A6D08AA8279CEFC400D35698 /* Repository.h in Headers */ = {isa = PBXBuildFile; fileRef = A6D08A9A279CEFC400D35698 /* Repository.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D24518527751F58218E58F46 /* RepositoryTests-RepositoryMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22DB09A887EEEA508E894FAE /* RepositoryTests-RepositoryMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +43,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22DB09A887EEEA508E894FAE /* RepositoryTests-RepositoryMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "RepositoryTests-RepositoryMocks.generated.swift"; path = "MockingbirdMocks/RepositoryTests-RepositoryMocks.generated.swift"; sourceTree = "<group>"; };
+		A67945A227A133B100ADF5FD /* MockURLProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockURLProtocol.swift; sourceTree = "<group>"; };
+		A67945A327A133B100ADF5FD /* ContactApiTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactApiTests.swift; sourceTree = "<group>"; };
+		A67945A527A133B100ADF5FD /* ContactDaoTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDaoTests.swift; sourceTree = "<group>"; };
+		A67945A727A133B100ADF5FD /* ContactRepositoryTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactRepositoryTests.swift; sourceTree = "<group>"; };
 		A6BB733E279CF74C001B2DD7 /* Repository.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 		A6BB734D279CF770001B2DD7 /* Publisher+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Publisher+Extension.swift"; sourceTree = "<group>"; };
 		A6BB7350279CF770001B2DD7 /* ContactDaoImpl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDaoImpl.swift; sourceTree = "<group>"; };
@@ -71,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67945AE27A135A800ADF5FD /* Mockingbird in Frameworks */,
 				A6D08AA1279CEFC400D35698 /* Repository.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -78,6 +90,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A67945A127A133B100ADF5FD /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				A67945A227A133B100ADF5FD /* MockURLProtocol.swift */,
+				A67945A327A133B100ADF5FD /* ContactApiTests.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		A67945A427A133B100ADF5FD /* Dao */ = {
+			isa = PBXGroup;
+			children = (
+				A67945A527A133B100ADF5FD /* ContactDaoTests.swift */,
+			);
+			path = Dao;
+			sourceTree = "<group>";
+		};
+		A67945A627A133B100ADF5FD /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				A67945A727A133B100ADF5FD /* ContactRepositoryTests.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
 		A6BB734C279CF770001B2DD7 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -177,6 +214,7 @@
 				A6D08A99279CEFC400D35698 /* Repository */,
 				A6D08AA4279CEFC400D35698 /* RepositoryTests */,
 				A6D08A98279CEFC400D35698 /* Products */,
+				F9B9F2D1D0E7F274AD830E26 /* Generated Mocks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,10 +248,21 @@
 		A6D08AA4279CEFC400D35698 /* RepositoryTests */ = {
 			isa = PBXGroup;
 			children = (
+				A67945A127A133B100ADF5FD /* Api */,
+				A67945A427A133B100ADF5FD /* Dao */,
+				A67945A627A133B100ADF5FD /* Repository */,
 				A6D08AA5279CEFC400D35698 /* RepositoryTests.swift */,
 				A6D08AA7279CEFC400D35698 /* Info.plist */,
 			);
 			path = RepositoryTests;
+			sourceTree = "<group>";
+		};
+		F9B9F2D1D0E7F274AD830E26 /* Generated Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				22DB09A887EEEA508E894FAE /* RepositoryTests-RepositoryMocks.generated.swift */,
+			);
+			name = "Generated Mocks";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -244,6 +293,8 @@
 			dependencies = (
 			);
 			name = Repository;
+			packageProductDependencies = (
+			);
 			productName = Repository;
 			productReference = A6D08A97279CEFC400D35698 /* Repository.framework */;
 			productType = "com.apple.product-type.framework";
@@ -252,6 +303,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A6D08AAE279CEFC400D35698 /* Build configuration list for PBXNativeTarget "RepositoryTests" */;
 			buildPhases = (
+				34C012FEEB0C36BD082F8572 /* Clean Mockingbird Mocks */,
+				426EB8DD852B3ECE8706E102 /* Generate Mockingbird Mocks */,
 				A6D08A9C279CEFC400D35698 /* Sources */,
 				A6D08A9D279CEFC400D35698 /* Frameworks */,
 				A6D08A9E279CEFC400D35698 /* Resources */,
@@ -262,6 +315,9 @@
 				A6D08AA3279CEFC400D35698 /* PBXTargetDependency */,
 			);
 			name = RepositoryTests;
+			packageProductDependencies = (
+				A67945AD27A135A800ADF5FD /* Mockingbird */,
+			);
 			productName = RepositoryTests;
 			productReference = A6D08AA0279CEFC400D35698 /* RepositoryTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -293,6 +349,9 @@
 				Base,
 			);
 			mainGroup = A6D08A8D279CEFC300D35698;
+			packageReferences = (
+				A67945AC27A135A800ADF5FD /* XCRemoteSwiftPackageReference "mockingbird" */,
+			);
 			productRefGroup = A6D08A98279CEFC400D35698 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -320,6 +379,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		34C012FEEB0C36BD082F8572 /* Clean Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Clean Mockingbird Mocks";
+			outputPaths = (
+				"/tmp/Mockingbird-F8E7A40C-C461-47FB-B80A-7B983D2051AF",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "echo $RANDOM > '/tmp/Mockingbird-F8E7A40C-C461-47FB-B80A-7B983D2051AF'\n";
+		};
+		426EB8DD852B3ECE8706E102 /* Generate Mockingbird Mocks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"/tmp/Mockingbird-F8E7A40C-C461-47FB-B80A-7B983D2051AF",
+			);
+			name = "Generate Mockingbird Mocks";
+			outputPaths = (
+				"$(SRCROOT)/MockingbirdMocks/RepositoryTests-RepositoryMocks.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\n# Ensure mocks are generated prior to running Compile Sources\nrm -f '/tmp/Mockingbird-F8E7A40C-C461-47FB-B80A-7B983D2051AF'\n\nmockingbird generate \\\n  --targets 'Repository' \\\n  --outputs \"${SRCROOT}/MockingbirdMocks/RepositoryTests-RepositoryMocks.generated.swift\" \\\n  --support \"${SRCROOT}/MockingbirdSupport\"";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A6D08A93279CEFC400D35698 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -346,7 +439,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A67945A827A133B100ADF5FD /* MockURLProtocol.swift in Sources */,
+				A67945AA27A133B100ADF5FD /* ContactDaoTests.swift in Sources */,
+				A67945AB27A133B100ADF5FD /* ContactRepositoryTests.swift in Sources */,
+				A67945A927A133B100ADF5FD /* ContactApiTests.swift in Sources */,
 				A6D08AA6279CEFC400D35698 /* RepositoryTests.swift in Sources */,
+				D24518527751F58218E58F46 /* RepositoryTests-RepositoryMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -601,6 +699,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A67945AC27A135A800ADF5FD /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/birdrides/mockingbird";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A67945AD27A135A800ADF5FD /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A67945AC27A135A800ADF5FD /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A6D08A8E279CEFC300D35698 /* Project object */;
 }
