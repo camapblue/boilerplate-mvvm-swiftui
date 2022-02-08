@@ -11,8 +11,6 @@ import Combine
 
 class ContactDetailViewModel: ObservableObject {
     private let editContactUsecase: EditContactUseCase
-    private let appShowingManager: AppShowingManager
-    private let contactManager: ContactManager
     
     @Published var contact: Contact
     @Published var editingFirstName: String = ""
@@ -23,14 +21,10 @@ class ContactDetailViewModel: ObservableObject {
     
     init(
         contact: Contact,
-        editContactUsecase: EditContactUseCase,
-        appShowingManager: AppShowingManager,
-        contactManager: ContactManager
+        editContactUsecase: EditContactUseCase
     ) {
         self.contact = contact
         self.editContactUsecase = editContactUsecase
-        self.appShowingManager = appShowingManager
-        self.contactManager = contactManager
         bindEvents()
     }
     
@@ -62,34 +56,25 @@ class ContactDetailViewModel: ObservableObject {
     }
     
     func updateBtnPressed() {
-        appShowingManager.showGlobalLoading()
         editContactUsecase.edit(
-            contact: contact.copyWith(
-                firstName: editingFirstName,
-                lastName: editingLastName
+                contact: contact.copyWith(
+                    firstName: editingFirstName,
+                    lastName: editingLastName
+                )
             )
-        )
-            .delay(for: 2, scheduler: RunLoop.main)
             .receive(on: DispatchQueue.main)
-            .sink(receiveCompletion: { [weak self] completion in
+            .sink(receiveCompletion: { completion in
                 switch completion {
-                case .finished:
-                    break
                 case .failure(_):
-                    if let self = self {
-                        // handleException()
-                        
-                        self.appShowingManager.hideGlobalLoading()
-                    }
+                    print("Error in edit contact")
+                default: break
                 }
             }, receiveValue: { [weak self] updatedContact in
                 guard let self = self else { return }
-                self.contactManager.updateContactSuccess(updatedContact)
-                self.appShowingManager.hideGlobalLoading()
+                
                 self.contact = updatedContact
                 self.editingFirstName = ""
                 self.editingLastName = ""
-                
             })
             .store(in: &bag)
     }

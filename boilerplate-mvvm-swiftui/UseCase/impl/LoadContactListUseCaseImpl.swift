@@ -11,8 +11,12 @@ import Repository
 
 public class LoadContactListUseCaseImpl: LoadListUseCase<Contact> {
     private var contactRepository: ContactRepository
-    public init(contactRepository: ContactRepository) {
+    private var contactManager: ContactManager
+    private var disposables = Set<AnyCancellable>()
+    
+    public init(contactRepository: ContactRepository, contactManager: ContactManager) {
         self.contactRepository = contactRepository
+        self.contactManager = contactManager
     }
     
     override func forceToRefresh() {
@@ -20,12 +24,36 @@ public class LoadContactListUseCaseImpl: LoadListUseCase<Contact> {
     }
     
     public override func loadItems() throws -> Future<[Contact], Error> {
-        return contactRepository.fetchContacts()
+        return Future { [unowned self] promise in
+            self.contactRepository.fetchContacts()
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        promise(.failure(error))
+                    default: break
+                    }
+                }, receiveValue: { contacts in
+                    self.contactManager.updateContactList(contacts)
+                    promise(.success(contacts))
+                })
+                .store(in: &self.disposables)
+        }
     }
     
     public override func loadItems(params: [String: Any]?) throws -> Future<[Contact], Error> {
-        // TODO: Add params
-        return contactRepository
-            .fetchContacts(size: 20)
+        return Future { [unowned self] promise in
+            self.contactRepository.fetchContacts(size: 20)
+                .sink(receiveCompletion: { completion in
+                    switch completion {
+                    case .failure(let error):
+                        promise(.failure(error))
+                    default: break
+                    }
+                }, receiveValue: { contacts in
+                    self.contactManager.updateContactList(contacts)
+                    promise(.success(contacts))
+                })
+                .store(in: &self.disposables)
+        }
     }
 }

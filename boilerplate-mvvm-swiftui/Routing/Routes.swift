@@ -29,7 +29,6 @@ extension Array where Element == NavigationRoute {
                 .provideViewModel(create: {
                     ContactListViewModel(
                         loadListUseCase: UseCases.loadContactListUseCase(),
-                        editContactUsecase: UseCases.editContactUseCase(),
                         contactManager: AppState.shared.contactManager()
                     )
                 })
@@ -40,9 +39,7 @@ extension Array where Element == NavigationRoute {
                 .provideViewModel {
                     ContactDetailViewModel(
                         contact: route.link.meta["contact"] as! Contact,
-                        editContactUsecase: UseCases.editContactUseCase(),
-                        appShowingManager: AppState.shared.appShowingManager(),
-                        contactManager: AppState.shared.contactManager()
+                        editContactUsecase: UseCases.editContactUseCase()
                     )
                 }
         }

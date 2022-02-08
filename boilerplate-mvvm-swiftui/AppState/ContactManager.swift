@@ -10,7 +10,9 @@ import Combine
 import Repository
 
 public protocol ContactManager {
-    var onContactUpdated: AnyPublisher<Contact, Never> { get }
+    var onContactListUpdated: AnyPublisher<[Contact], Never> { get }
     
-    func updateContactSuccess(_ contact: Contact)
+    func updateContactList(_ contacts: [Contact])
+    
+    func updateContact(_ contact: Contact)
 }

@@ -14,6 +14,7 @@ class LoadListViewModel<Item: Equatable> : ObservableObject {
     
     private var params: [String: Any]?
     
+    var isFirstLaunch: Bool = false
     @Published var isLoading: Bool = false
     @Published var isFinished: Bool = false
     @Published var items: [Item] = [Item]()
@@ -52,6 +53,7 @@ class LoadListViewModel<Item: Equatable> : ObservableObject {
     }
     
     func start() {
+        isFirstLaunch = true
         var params = self.params ?? [String: Any]()
         params["index"] = 0
         

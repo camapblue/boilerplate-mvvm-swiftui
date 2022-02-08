@@ -11,12 +11,19 @@ import Repository
 // Dependency Injection for UseCase layer
 class UseCases {
     static func editContactUseCase() -> EditContactUseCase {
-        return EditContactUseCaseImpl(contactRepository: Repository.shared.contactRepository())
+        return EditContactUseCaseImpl(
+            contactRepository: Repository.shared.contactRepository(),
+            contactManager: AppState.shared.contactManager(),
+            appShowingManager: AppState.shared.appShowingManager()
+        )
     }
     
     // list service
     static func loadContactListUseCase() -> LoadListUseCase<Contact> {
-        return LoadContactListUseCaseImpl(contactRepository: Repository.shared.contactRepository())
+        return LoadContactListUseCaseImpl(
+            contactRepository: Repository.shared.contactRepository(),
+            contactManager: AppState.shared.contactManager()
+        )
     }
 }
 

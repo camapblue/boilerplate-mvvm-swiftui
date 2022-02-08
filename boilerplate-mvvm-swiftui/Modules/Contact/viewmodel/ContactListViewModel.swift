@@ -10,17 +10,14 @@ import Repository
 import Combine
 
 class ContactListViewModel: LoadListViewModel<Contact> {
-    private let editContactUsecase: EditContactUseCase
     private let contactManager: ContactManager
     
     private var bag = Set<AnyCancellable>()
     
     init(
         loadListUseCase: LoadListUseCase<Contact>,
-        editContactUsecase: EditContactUseCase,
         contactManager: ContactManager
     ) {
-        self.editContactUsecase = editContactUsecase
         self.contactManager = contactManager
         super.init(loadListUseCase: loadListUseCase)
         bindEvents()
@@ -28,15 +25,14 @@ class ContactListViewModel: LoadListViewModel<Contact> {
     
     private func bindEvents() {
         contactManager
-            .onContactUpdated
+            .onContactListUpdated
+            .filter { [weak self] _ in
+                return !(self?.isLoading ?? true)
+            }
             .receive(on: DispatchQueue.main)
-            .sink(receiveValue: { [weak self] updatedContact in
+            .sink(receiveValue: { [weak self] contacts in
                 guard let self = self else { return }
-                var contacts = self.items
-                if let contactIndex = contacts.firstIndex(where: { $0.id == updatedContact.id }) {
-                    contacts[contactIndex] = updatedContact
-                    self.items = contacts
-                }
+                self.items = contacts
             })
             .store(in: &bag)
     }

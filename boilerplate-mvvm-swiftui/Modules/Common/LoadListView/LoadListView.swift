@@ -111,7 +111,7 @@ struct LoadListView<T: Equatable>: View {
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 0)
         }
         .onLoaded {
-            if autoStart {
+            if autoStart && !viewModel.isFirstLaunch {
                 viewModel.start()
             }
         }
@@ -122,7 +122,6 @@ struct LoadListView<T: Equatable>: View {
             return
         }
         
-        print("Start LOAD MORE")
         viewModel.loadNext()
     }
 
