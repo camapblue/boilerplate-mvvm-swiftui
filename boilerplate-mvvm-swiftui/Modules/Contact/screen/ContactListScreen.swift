@@ -19,13 +19,13 @@ struct ContactListScreen: View {
             pullToRefresh: true, isLoadMore: false) { contact in
             return AnyView(
                 Button(action: {
-                    router.push(link: .contactDetails(with: contact.id))
+                    router.push(link: .contactDetails(with: contact))
                 }, label: {
                     ContactRowItem(contact: contact)
                 })
             )
         } itemKey: {
-            return $0.id
+            return $0.id + $0.fullName()
         }
         .navigationTitle("Contacts")
     }

@@ -12,9 +12,6 @@ import POC_Common_UI_iOS
 struct ContactDetailScreen: View {
     @EnvironmentObject private var viewModel: ContactDetailViewModel
     
-    @SwiftUI.State private var editingFirstName: String = ""
-    @SwiftUI.State private var editingLastName: String = ""
-    
     var body: some View {
         let contact = viewModel.contact
         
@@ -25,12 +22,12 @@ struct ContactDetailScreen: View {
                 Rectangle().fill(Color.clear).frame(height: 44)
                 HStack {
                     SpacerView(width: 48)
-                    if editingFirstName.isEmpty && editingLastName.isEmpty {
+                    if viewModel.editingFirstName.isEmpty && viewModel.editingLastName.isEmpty {
                         Text(contact.fullName())
                             .primaryBold(fontSize: 20)
                     } else {
                         HStack {
-                            TextField("Input first name", text: $editingFirstName)
+                            TextField("Input first name", text: $viewModel.editingFirstName)
                                 .padding(4)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
@@ -38,7 +35,7 @@ struct ContactDetailScreen: View {
                                 )
                                 .padding(4)
                             SpacerView(width: 16)
-                            TextField("Input last name", text: $editingLastName)
+                            TextField("Input last name", text: $viewModel.editingLastName)
                                 .padding(4)
                                 .overlay(
                                     RoundedRectangle(cornerRadius: 8)
@@ -48,10 +45,9 @@ struct ContactDetailScreen: View {
                         }
                     }
                     SpacerView(width: 16)
-                    if editingFirstName.isEmpty && editingLastName.isEmpty {
+                    if viewModel.editingFirstName.isEmpty && viewModel.editingLastName.isEmpty {
                         Button(action: {
-                            editingFirstName = contact.firstName
-                            editingLastName = contact.lastName
+                            viewModel.editBtnPressed()
                         }) {
                             Image("ico_edit")
                                 .renderingMode(.original)
@@ -85,8 +81,8 @@ struct ContactDetailScreen: View {
                 }
                 .frame(minWidth: 0, maxWidth: .infinity)
                 Spacer()
-                ButtonView.primary("Update Contact", disabled: (editingFirstName == contact.firstName || editingFirstName.isEmpty) && (editingLastName == contact.lastName || editingLastName.isEmpty)) {
-                    
+                ButtonView.primary("Update Contact", disabled: !viewModel.updateBtnEnable ) {
+                    viewModel.updateBtnPressed()
                 }
                 .padding(.horizontal, 32)
                 SpacerView(height: 32)

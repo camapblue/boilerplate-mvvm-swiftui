@@ -13,9 +13,9 @@ extension NavigationRouteLink {
     static var storyBook: NavigationRouteLink { "/storyBook" }
     static var contactList: NavigationRouteLink { "/contactList" }
     
-    static func contactDetails(with contactId: String) -> NavigationRouteLink {
-        NavigationRouteLink(path: "/contact/\(contactId)", meta: [
-            "contactId": contactId,
+    static func contactDetails(with contact: Contact) -> NavigationRouteLink {
+        NavigationRouteLink(path: "/contact/\(contact.id)", meta: [
+            "contact": contact,
         ])
     }
 }
@@ -27,12 +27,24 @@ extension Array where Element == NavigationRoute {
         let contactList = NavigationRoute(path: "/contactList") {
             ContactListScreen()
                 .provideViewModel(create: {
-                    ContactListViewModel(loadListUseCase: UseCases.loadContactListUseCase())
+                    ContactListViewModel(
+                        loadListUseCase: UseCases.loadContactListUseCase(),
+                        editContactUsecase: UseCases.editContactUseCase(),
+                        contactManager: AppState.shared.contactManager()
+                    )
                 })
         }
         
         let contactDetails = NavigationRoute(path: "/contact/{id}") { route in
             ContactDetailScreen()
+                .provideViewModel {
+                    ContactDetailViewModel(
+                        contact: route.link.meta["contact"] as! Contact,
+                        editContactUsecase: UseCases.editContactUseCase(),
+                        appShowingManager: AppState.shared.appShowingManager(),
+                        contactManager: AppState.shared.contactManager()
+                    )
+                }
         }
         
         return [splash, contactList, contactDetails]

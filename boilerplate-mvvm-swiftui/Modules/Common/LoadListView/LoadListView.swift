@@ -110,7 +110,7 @@ struct LoadListView<T: Equatable>: View {
             .loadingOverlay(isLoading: viewModel.isLoading)
             .padding(/*@START_MENU_TOKEN@*/.all/*@END_MENU_TOKEN@*/, 0)
         }
-        .onAppear {
+        .onLoaded {
             if autoStart {
                 viewModel.start()
             }

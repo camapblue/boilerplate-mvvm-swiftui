@@ -54,6 +54,8 @@
 		A6F5B228279E61C900E06101 /* LoadListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5B226279E61C900E06101 /* LoadListViewModel.swift */; };
 		A6F5B229279E61C900E06101 /* LoadListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5B227279E61C900E06101 /* LoadListView.swift */; };
 		A6F5B22B279E61FB00E06101 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6F5B22A279E61FB00E06101 /* LoadingView.swift */; };
+		CA2C5B59279EEA96004179D4 /* ContactManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2C5B58279EEA96004179D4 /* ContactManager.swift */; };
+		CA2C5B5B279EEAA3004179D4 /* ContactManagerImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2C5B5A279EEAA3004179D4 /* ContactManagerImpl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -141,6 +143,8 @@
 		A6F5B226279E61C900E06101 /* LoadListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadListViewModel.swift; sourceTree = "<group>"; };
 		A6F5B227279E61C900E06101 /* LoadListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadListView.swift; sourceTree = "<group>"; };
 		A6F5B22A279E61FB00E06101 /* LoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
+		CA2C5B58279EEA96004179D4 /* ContactManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManager.swift; sourceTree = "<group>"; };
+		CA2C5B5A279EEAA3004179D4 /* ContactManagerImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactManagerImpl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -316,6 +320,7 @@
 				A6BB73C7279CFDF0001B2DD7 /* impl */,
 				A6BB73C1279CFC57001B2DD7 /* AppState.swift */,
 				A6BB73C3279CFD1E001B2DD7 /* AppShowingManager.swift */,
+				CA2C5B58279EEA96004179D4 /* ContactManager.swift */,
 			);
 			path = AppState;
 			sourceTree = "<group>";
@@ -324,6 +329,7 @@
 			isa = PBXGroup;
 			children = (
 				A6BB73C8279CFE00001B2DD7 /* AppShowingManagerImpl.swift */,
+				CA2C5B5A279EEAA3004179D4 /* ContactManagerImpl.swift */,
 			);
 			path = impl;
 			sourceTree = "<group>";
@@ -610,6 +616,7 @@
 			files = (
 				A6F5B229279E61C900E06101 /* LoadListView.swift in Sources */,
 				A6E9A046279CED0200CC4EB8 /* ContentView.swift in Sources */,
+				CA2C5B5B279EEAA3004179D4 /* ContactManagerImpl.swift in Sources */,
 				A6F5B210279D387100E06101 /* LoadListUseCase.swift in Sources */,
 				A6F5B215279D39F400E06101 /* AppShowingViewModel.swift in Sources */,
 				A6BB739D279CF8A1001B2DD7 /* Text.swift in Sources */,
@@ -638,6 +645,7 @@
 				A6BB73A7279CF8A1001B2DD7 /* RouterLink.swift in Sources */,
 				A6BB739E279CF8A1001B2DD7 /* DesignTokens.swift in Sources */,
 				A6BB73B7279CF8A1001B2DD7 /* Routes.swift in Sources */,
+				CA2C5B59279EEA96004179D4 /* ContactManager.swift in Sources */,
 				A6F5B20F279D387100E06101 /* UseCases.swift in Sources */,
 				A6BB73AA279CF8A1001B2DD7 /* NavigationRoute.swift in Sources */,
 				A6F5B223279E488E00E06101 /* ContactDetailViewModel.swift in Sources */,
