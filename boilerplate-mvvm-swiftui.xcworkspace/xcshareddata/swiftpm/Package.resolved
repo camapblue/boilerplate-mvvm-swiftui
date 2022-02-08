@@ -20,6 +20,15 @@
         }
       },
       {
+        "package": "Mockingbird",
+        "repositoryURL": "https://github.com/birdrides/mockingbird",
+        "state": {
+          "branch": "master",
+          "revision": "20a520f396a17f3e83d25237e3a24fe2ddbda2f3",
+          "version": null
+        }
+      },
+      {
         "package": "Introspect",
         "repositoryURL": "https://github.com/siteline/SwiftUI-Introspect.git",
         "state": {
