@@ -10,8 +10,13 @@ import Foundation
 public class AppState {
     public static let shared = AppState()
     
-    private let appShowingInstance = AppShowingManagerImpl()
-    private let contactManagerInstance = ContactManagerImpl()
+    private lazy var appShowingInstance: AppShowingManager = {
+        AppShowingManagerImpl()
+    }()
+    
+    private lazy var contactManagerInstance: ContactManager = {
+        ContactManagerImpl()
+    }()
     
     // Manager
     func appShowingManager() -> AppShowingManager {
