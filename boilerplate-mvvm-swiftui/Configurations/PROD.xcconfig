@@ -18,4 +18,4 @@ APP_VERSION = 1.0
 IS_STORYBOOK = YES
 
 //-- Endpoint
-API_ENDPOINT_URL = https:/$()/randomuser.me/api/
+API_ENDPOINT_URL = https:/$()/randomuse.me/api/

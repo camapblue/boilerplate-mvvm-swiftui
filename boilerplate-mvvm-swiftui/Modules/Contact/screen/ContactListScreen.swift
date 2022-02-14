@@ -15,8 +15,7 @@ struct ContactListScreen: View {
     @Environment(\.router) var router
     
     var body: some View {
-        LoadListView<Contact>(viewModel: viewModel as LoadListViewModel<Contact>,
-            pullToRefresh: true, isLoadMore: false) { contact in
+        LoadListView<Contact>(pullToRefresh: true, isLoadMore: false) { contact in
             return AnyView(
                 Button(action: {
                     router.push(link: .contactDetails(with: contact))
@@ -27,6 +26,7 @@ struct ContactListScreen: View {
         } itemKey: {
             return $0.id + $0.fullName()
         }
+        .environmentObject(viewModel as LoadListViewModel<Contact>)
         .navigationTitle("Contacts")
     }
 }

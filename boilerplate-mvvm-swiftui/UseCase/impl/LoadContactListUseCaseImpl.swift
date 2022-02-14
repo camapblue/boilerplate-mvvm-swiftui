@@ -19,7 +19,7 @@ public class LoadContactListUseCaseImpl: LoadListUseCase<Contact> {
         self.contactManager = contactManager
     }
     
-    override func forceToRefresh() {
+    public override func forceToRefresh() {
         contactRepository.clearCachedDataIfNeeded()
     }
     

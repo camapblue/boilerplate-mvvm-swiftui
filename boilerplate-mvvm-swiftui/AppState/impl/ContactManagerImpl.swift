@@ -19,7 +19,6 @@ public class ContactManagerImpl: ContactManager {
     
     public func updateContactList(_ contacts: [Contact]) {
         self.contacts = contacts
-        contactListSubject.send(contacts)
     }
     
     public func updateContact(_ contact: Contact) {

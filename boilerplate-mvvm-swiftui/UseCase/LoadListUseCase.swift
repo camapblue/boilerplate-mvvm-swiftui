@@ -9,7 +9,7 @@ import Foundation
 import Combine
 
 public class LoadListUseCase<Item: Equatable> {
-    func forceToRefresh() { }
+    public func forceToRefresh() { }
     
     public func loadItems() throws -> Future<[Item], Error> { throw "not implemented yet" }
     

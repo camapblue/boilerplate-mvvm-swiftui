@@ -23,12 +23,8 @@ struct ItemData<T: Equatable>: Identifiable {
     }
 }
 
-class LoadListViewState: ObservableObject {
-    @Published var isRefreshing = false
-}
-
 struct LoadListView<T: Equatable>: View {
-    private var viewModel: LoadListViewModel<T>
+    @EnvironmentObject var viewModel: LoadListViewModel<T>
     
     private var itemBuilder: ItemBuilder<T>
     private var itemFilter: ItemFilter<T>?
@@ -39,10 +35,7 @@ struct LoadListView<T: Equatable>: View {
     private var isLoadMore: Bool
     private var params: [String: Any]?
     
-    @StateObject var viewState = LoadListViewState()
-    
-    init(viewModel: LoadListViewModel<T>,
-        params: [String: Any]? = nil,
+    init(params: [String: Any]? = nil,
          autoStart: Bool = true,
          pullToRefresh: Bool = false,
          isLoadMore: Bool = true,
@@ -50,7 +43,6 @@ struct LoadListView<T: Equatable>: View {
          itemFilter: ItemFilter<T>? = nil,
          itemSort: ItemSort<T>? = nil,
          itemKey: @escaping ItemKey<T>) {
-        self.viewModel = viewModel
         self.params = params
         self.itemBuilder = itemBuilder
         self.itemFilter = itemFilter
@@ -88,7 +80,7 @@ struct LoadListView<T: Equatable>: View {
                             .onAppear(perform: loadMore)
                         }
                     }
-                    .pullToRefresh(isShowing: $viewState.isRefreshing) {
+                    .pullToRefresh(isShowing: $viewModel.isRefreshing) {
                         viewModel.refresh()
                     }
                 } else {
