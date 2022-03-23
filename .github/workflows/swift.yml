@@ -14,6 +14,8 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: Build
+      run: swift package init
       run: swift build -v
     - name: Run tests
+      run: swift package init
       run: swift test -v
